@@ -6,9 +6,9 @@ contact_links:
   - name: Installation help
     url: https://github.com/Juan-Concepcion/tools4i-docs/blob/main/INSTALLATION.md
     about: Requirements, how to install from either marketplace or from a file, and what to check first.
-  - name: Ask by email
-    url: mailto:tools4i.support@gmail.com
-    about: If you would rather not write in public, write to tools4i.support@gmail.com.
+  - name: Ask by email instead
+    url: https://github.com/Juan-Concepcion/tools4i-docs/blob/main/CONTRIBUTING.md
+    about: Rather not write in public? Write to tools4i.support@gmail.com.
   - name: Rate or review the extension
     url: https://marketplace.visualstudio.com/items?itemName=tools4i.tools4i
     about: The Marketplace page, where a review helps other IBM i developers find it.
