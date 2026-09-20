@@ -1,0 +1,23 @@
+# This repository holds documentation only. No extension source, no builds.
+*.vsix
+*.ts
+*.js
+*.map
+src/
+dist/
+out/
+node_modules/
+package.json
+package-lock.json
+
+# Editor and OS leftovers
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Scratch files
+*.tmp
+*.bak
+*~

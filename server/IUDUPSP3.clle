@@ -1,0 +1,55 @@
+PGM        PARM(&SPLNAM &JOB &SPLFNO &TOQ)
+             DCL        VAR(&SPLNAM) TYPE(*CHAR) LEN(10)
+             DCL        VAR(&JOB) TYPE(*CHAR) LEN(26)
+             DCL        VAR(&SPLFNO) TYPE(*DEC) LEN(15 5)
+             DCL        VAR(&TOQ) TYPE(*CHAR) LEN(20)
+             DCL        VAR(&SPHND) TYPE(*CHAR) LEN(4)
+             DCL        VAR(&NWHND) TYPE(*CHAR) LEN(4)
+             DCL        VAR(&JOBID) TYPE(*CHAR) LEN(16)
+             DCL        VAR(&SPLID) TYPE(*CHAR) LEN(16)
+             DCL        VAR(&SPLNUM) TYPE(*CHAR) LEN(4)
+             DCL        VAR(&MINUS1) TYPE(*CHAR) LEN(4)
+             DCL        VAR(&USIZE) TYPE(*CHAR) LEN(4)
+             DCL        VAR(&ERR) TYPE(*CHAR) LEN(16)
+             DCL        VAR(&VAR) TYPE(*CHAR) LEN(4096)
+             DCL        VAR(&SPACE) TYPE(*CHAR) LEN(20) VALUE('SPGETSP   QTEMP')
+             DCL        VAR(&LEN) TYPE(*CHAR) LEN(4)
+             DCL        VAR(&SPCLIB) TYPE(*CHAR) LEN(10)
+             DCL        VAR(&CHGSPC) TYPE(*CHAR) LEN(16)
+             DCL        VAR(&MSGID) TYPE(*CHAR) LEN(7)
+             DCL        VAR(&MSGF) TYPE(*CHAR) LEN(10)
+             DCL        VAR(&MSGFLIB) TYPE(*CHAR) LEN(10)
+             DCL        VAR(&MSGDTA) TYPE(*CHAR) LEN(512)
+             MONMSG     MSGID(CPF0000 MCH0000) EXEC(GOTO CMDLBL(ERRORSUB))
+             CHGVAR     VAR(%BIN(&SPLNUM)) VALUE(&SPLFNO)
+             CHGVAR     VAR(%BIN(&MINUS1)) VALUE(-1)
+             CHGVAR     VAR(&ERR) VALUE(X'00000000000000000000000000000000')
+             CALL       PGM(QSPOPNSP) PARM(&SPHND &JOB &JOBID &SPLID +
+                          &SPLNAM &SPLNUM &MINUS1 &ERR)
+             CHGVAR     VAR(%BIN(&LEN)) VALUE(4096)
+             CALL       PGM(QUSRSPLA) PARM(&VAR &LEN 'SPLA0200' &JOB +
+                          &JOBID &SPLID &SPLNAM &SPLNUM)
+             CHKOBJ     OBJ(QTEMP/SPGETSP) OBJTYPE(*USRSPC)
+             MONMSG     MSGID(CPF9801) EXEC(DO)
+             CHGVAR     VAR(%BIN(&USIZE)) VALUE(500)
+             CALL       PGM(QUSCRTUS) PARM(&SPACE 'SPLF      ' &USIZE +
+                          X'00' '*ALL' 'Spool duplicate work space' +
+                          '*YES' &ERR)
+             ENDDO
+             CHGVAR     VAR(&CHGSPC) +
+                          VALUE(X'000000010000000100000004000001F4')
+             CALL       PGM(QUSCUSAT) PARM(&SPCLIB &SPACE &CHGSPC &ERR)
+             CALL       PGM(QSPGETSP) PARM(&SPHND &SPACE 'SPFR0200' +
+                          &MINUS1 '*ERROR    ' &ERR)
+             IF         COND(&TOQ *NE '*SAME') THEN(CHGVAR +
+                          VAR(%SST(&VAR 191 20)) VALUE(&TOQ))
+             CALL       PGM(QSPCRTSP) PARM(&NWHND &VAR &ERR)
+             CALL       PGM(QSPPUTSP) PARM(&NWHND &SPACE &ERR)
+             CALL       PGM(QSPCLOSP) PARM(&SPHND &ERR)
+             CALL       PGM(QSPCLOSP) PARM(&NWHND &ERR)
+             RETURN
+ ERRORSUB:   RCVMSG     MSGTYPE(*LAST) RMV(*NO) MSGDTA(&MSGDTA) +
+                          MSGID(&MSGID) MSGF(&MSGF) MSGFLIB(&MSGFLIB)
+             SNDPGMMSG  MSGID(&MSGID) MSGF(&MSGFLIB/&MSGF) +
+                          MSGDTA(&MSGDTA) MSGTYPE(*ESCAPE)
+             ENDPGM

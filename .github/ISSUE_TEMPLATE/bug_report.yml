@@ -1,0 +1,120 @@
+name: Bug report
+description: Something in Tools4i does not work, or does not work as described.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report this.
+
+        **Before you write:** please replace real library, object, user and file
+        names with example ones, and crop anything confidential out of a
+        screenshot. Everything you write here is public.
+
+        You can write in English or in Spanish.
+
+  - type: input
+    id: tools4i-version
+    attributes:
+      label: Tools4i version
+      description: You will find it in the Extensions view, or in About Tools4i.
+      placeholder: "1.2.8"
+    validations:
+      required: true
+
+  - type: input
+    id: code-for-ibmi-version
+    attributes:
+      label: Code for IBM i version
+      description: From the Extensions view.
+      placeholder: "3.0.13"
+    validations:
+      required: true
+
+  - type: input
+    id: editor-version
+    attributes:
+      label: Editor and version
+      description: VS Code, IBM Bob or another build, with its version.
+      placeholder: "VS Code 1.118.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Your operating system
+      options:
+        - Windows
+        - macOS
+        - Linux
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: ibmi-release
+    attributes:
+      label: IBM i release
+      description: Optional, but it helps when something the server answers looks wrong.
+      placeholder: "7.5"
+    validations:
+      required: false
+
+  - type: input
+    id: tool
+    attributes:
+      label: Which tool
+      description: The name of the panel or command where it happens.
+      placeholder: "Navigate Server"
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you saw, including the exact message if there was one.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected instead
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: What you did, in order, from opening the tool.
+      placeholder: |
+        1. Open ...
+        2. Fill in ...
+        3. Press ...
+        4. See ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else
+      description: |
+        Screenshots, or the relevant lines of the Tools4i output log if you have
+        them. Remember to remove real names and data first.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I am on the latest published version, or I said which version I am on above.
+          required: true
+        - label: There is no real or confidential data in what I pasted.
+          required: true
