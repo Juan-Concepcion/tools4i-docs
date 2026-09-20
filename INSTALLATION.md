@@ -49,13 +49,26 @@ from the Open VSX page and install it as described in the next section.
 
 ## From a packaged .vsix file
 
-This is how a pre-release or an internal build is distributed, and it is also the
-way to install on a machine that cannot reach an editor marketplace.
+This is the way to install on a machine that cannot reach an editor marketplace,
+and the way to put a particular version on a machine that already has another.
 
-The packaged file comes from the
-[Open VSX page](https://open-vsx.org/extension/tools4i/tools4i), which offers the
-current build for download, or by asking at tools4i.support@gmail.com if you need
-a particular version.
+**Where to download it.** Both marketplaces hand out the packaged file, and both
+keep the older versions as well:
+
+- **[Open VSX](https://open-vsx.org/extension/tools4i/tools4i)** offers the
+  current build on the extension page. Any published version can be fetched
+  directly, by putting the version number into this address twice:
+
+  ```
+  https://open-vsx.org/api/tools4i/tools4i/<version>/file/tools4i.tools4i-<version>.vsix
+  ```
+
+  The same page also publishes a signature file beside each build.
+- **[The Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=tools4i.tools4i)**
+  offers the current build from the extension page, and its **Version History**
+  tab lists the earlier ones, each with its own download.
+
+If what you need is not there, ask at tools4i.support@gmail.com.
 
 **From the editor**
 
@@ -137,13 +150,25 @@ de Microsoft, **IBM Bob** entre ellos: busque **Tools4i** en la vista de
 Extensiones, o descargue el archivo desde
 <https://open-vsx.org/extension/tools4i/tools4i>.
 
-**Desde un archivo `.vsix`**, que es como se distribuye una versión previa o una
-compilación interna, y la vía para una máquina que no alcanza ningún marketplace.
-El archivo se descarga desde la
-[página de Open VSX](https://open-vsx.org/extension/tools4i/tools4i), o se pide a
-tools4i.support@gmail.com si necesita una versión concreta. Con el archivo ya en
-su equipo, use el menú **...** de la vista de Extensiones, opción **Instalar desde
-VSIX**, o bien:
+**Desde un archivo `.vsix`**, que es la vía para una máquina que no alcanza ningún
+marketplace, y también para poner una versión concreta en una que ya tiene otra.
+Los dos marketplaces entregan el archivo y conservan las versiones anteriores:
+
+- **[Open VSX](https://open-vsx.org/extension/tools4i/tools4i)** ofrece la
+  compilación actual en la página de la extensión, y cualquier versión publicada
+  se descarga directamente poniendo su número dos veces en esta dirección:
+
+  ```
+  https://open-vsx.org/api/tools4i/tools4i/<versión>/file/tools4i.tools4i-<versión>.vsix
+  ```
+
+- **[El Marketplace de Visual Studio](https://marketplace.visualstudio.com/items?itemName=tools4i.tools4i)**
+  ofrece la actual en la página de la extensión, y lista las anteriores en su
+  pestaña **Version History**, cada una con su propia descarga.
+
+Si lo que necesita no está ahí, escriba a tools4i.support@gmail.com. Con el
+archivo ya en su equipo, use el menú **...** de la vista de Extensiones, opción
+**Instalar desde VSIX**, o bien:
 
 ```sh
 code --install-extension tools4i-<versión>.vsix
