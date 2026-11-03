@@ -31,27 +31,56 @@ readable sections.
 No connection is needed to read a dump you already have, which is what makes this
 useful when somebody sends you the evidence instead of the access.
 
-## The five tabs
+## Details
 
-| Tab | What it holds |
+The dump's own sections: program status, the statement that failed, the call stack and
+the rest.
+
+| Control | What it does |
 |---|---|
-| **Details** | The dump's own sections: program status, the statement that failed, the call stack and the rest |
-| **Files** | The files the program had open, with their state at the moment of the dump |
-| **Indicators** | Every indicator and its value when the program failed |
-| **Variables** | The program's variables and the values they held |
-| **Raw dump** | The dump exactly as it came, unparsed. Where to look when a section is not recognized |
+| **Search details** | **Enter** goes to the next match, **Shift+Enter** to the previous, and the arrows do the same |
+| **Expand all** / **Collapse all** | Open or close every section |
+| **Open source** | The source of the program that failed, at the statement it stopped on |
 
-Every tab has its own search, where **Enter** goes to the next match and
-**Shift+Enter** to the previous, and the first four have **Expand all** and **Collapse
-all**. On a dump of any size, collapsing everything and opening one section is how it
-becomes readable.
+On a dump of any size, collapsing everything and opening the one section you care about
+is how it becomes readable.
 
-Two filters earn their place:
+## Files
 
-- **On only**, on the Indicators tab, which turns a wall of `0` into the handful that
-  matter.
-- **Hide defaults** on Variables, which drops the ones still holding their initial
-  value.
+The files the program had open, with their state at the moment of the dump, and the
+record buffer each one held.
+
+**Search files**, with the same Enter and Shift+Enter, and **Expand all** and
+**Collapse all** for every file's details.
+
+A record buffer can be read as the file's own fields rather than as a block of bytes,
+and each file can be opened in the
+[File Viewer]({{ site.baseurl }}/tools/file-viewer/) from here.
+
+## Indicators
+
+Every indicator and its value when the program failed, grouped.
+
+**On only** turns a wall of `0` into the handful that matter, which is usually the
+whole question. Its search and its expand and collapse pair work on the groups.
+
+## Variables
+
+The program's variables and the values they held.
+
+| Control | What it does |
+|---|---|
+| **Filter** | Shows only the variables matching the text, looking in the **name, the attributes and the value** |
+| **Hide default values** | Drops the variables still holding blanks, zeros or empty, which on a large program is most of them |
+
+Filtering on a value rather than a name is the trick here: you know the wrong number
+that reached the file, and this is how you find which variable held it.
+
+## Raw dump
+
+The dump exactly as it came, unparsed. Where to look when a section is not recognized,
+or when you want to copy a block of it into a ticket. Its search highlights and steps
+through the matches with the arrows.
 
 ## The source, at the statement it stopped on
 

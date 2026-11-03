@@ -33,15 +33,22 @@ also reach it for one library from
 **Analyze** compares the level ids stored in each query definition against the files
 as they are now. **Cancel** stops it, reporting nothing.
 
-## The three tabs
+## Comparison
 
-| Tab | What it shows |
-|---|---|
-| **Comparison** | Every query-and-file pair, with both level ids side by side and the verdict |
-| **Queries Affected** | The distinct queries that will fail, one line each |
-| **Files** | Which record formats changed, and how many queries each breaks |
+Every query-and-file pair, with both level ids side by side and the verdict. Its
+**filter** narrows across query, file, record format and status, **Affected only**
+hides the pairs that still match, and **Export** writes the rows shown to CSV.
 
-Each has its own filter box, and **affected only** hides the pairs that still match.
+## Queries Affected
+
+The distinct queries that will fail, one line each. Its **filter** narrows by query or
+library name, **Copy list** puts the `LIBRARY/QUERY` list on the clipboard, and
+it exports to CSV.
+
+## Files
+
+Which record formats changed, and how many queries each one breaks, with its own
+filter and export.
 
 ## What to do with the result
 

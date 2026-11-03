@@ -36,16 +36,25 @@ the service program, long after everybody agreed the change was finished.
 **Analyze** compares the signature each caller was bound with against the signatures
 its service program carries now. **Cancel** stops it, reporting nothing.
 
-## The three tabs
+## Comparison
 
-| Tab | What it shows |
-|---|---|
-| **Comparison** | Every caller-and-service-program pair, with **the bound signature beside the current ones** and the verdict |
-| **Callers to Rebind** | The distinct callers that will fail, one line each whatever the number of service programs behind them |
-| **Service Programs** | Which ones have moved on from the signature their callers hold, and how many each one breaks |
+Every caller-and-service-program pair, with **the bound signature beside the current
+ones** and the verdict. Its **filter** narrows across caller, service program,
+signature and status.
 
-**Affected only** hides the pairs that still match, and **hide system** drops the
-IBM-supplied ones from the view.
+**Affected only** hides the pairs that still match, **hide system** drops the
+IBM-supplied ones, and **Export** writes the rows shown to CSV.
+
+## Callers to Rebind
+
+The distinct callers that will fail, one line each whatever the number of service
+programs behind them. Its **filter** narrows by caller or library name, **Copy list**
+puts the `LIBRARY/PROGRAM` list on the clipboard, and it exports to CSV.
+
+## Service Programs
+
+Which ones have moved on from the signature their callers hold, and how many each one
+breaks, with its own filter and export.
 
 The third tab is the one that finds the cause rather than the symptom: twenty callers
 failing usually means one service program was rebuilt with a changed export list.

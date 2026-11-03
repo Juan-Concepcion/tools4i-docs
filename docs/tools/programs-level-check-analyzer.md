@@ -35,16 +35,31 @@ fails at run time, in front of somebody, with a level check.
 the files as they are now. **Cancel** stops it before it finishes, and nothing is
 reported.
 
-## The three tabs
+## Comparison
 
-| Tab | What it shows |
-|---|---|
-| **Comparison** | Every program-and-file pair examined, with **both level ids side by side** and the verdict for each |
-| **Programs to Recompile** | The distinct programs that will fail, one line each whatever the number of files behind them. This is the work list |
-| **Files** | The same result from the other side: which record formats changed, and how many programs each one breaks |
+Every program-and-file pair examined, with **both level ids side by side** and the
+verdict for each.
 
-Each tab has a filter box of its own, narrowing across program, file, record format
-and status.
+Its **filter** narrows across program, file, record format and status, **Affected
+only** hides the rows whose level ids still match, and **Export** writes the rows
+shown to CSV.
+
+## Programs to Recompile
+
+The distinct programs that will fail, one line each whatever the number of files
+behind them. This is the work list.
+
+Its **filter** narrows by program or library name, **Copy list** puts the
+`LIBRARY/PROGRAM` list on the clipboard, and **Export** writes it to CSV.
+
+## Files
+
+The same result from the other side: which record formats changed, and how many
+programs each one breaks. Its **filter** narrows by file, library or record format,
+and it exports too.
+
+Read this tab when the recompile list is long: twenty programs failing usually means
+one or two files changed, and those are the ones to tell people about.
 
 ## Affected only, and the case it reveals
 

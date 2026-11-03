@@ -40,17 +40,31 @@ quietly reverts a fix nobody promoted.
 **Analyze** reads both sides and matches them up; several libraries take a while.
 **Cancel** stops it and keeps whatever has been read.
 
-## The four tabs
+## Sources
 
-| Tab | What it shows |
-|---|---|
-| **Sources** | Every source member with the object of the same name, or the fact that there is none |
-| **Objects** | The reverse: every object with the source it was built from, or the fact that none was found |
-| **Skipped Sources** | Members left out by the skip rules. **Check here when something you expected is missing** |
-| **Skipped Objects** | Objects left out, either by the rules or because their type is never built from source |
+Every source member, with the object of the same name, or the fact that there is none.
+Its **Filter sources** box shows only the rows containing the text, filtering what is
+already loaded rather than asking the server again.
 
-The two skipped tabs are what make the result trustworthy. A tool that silently drops
-rows cannot be checked; this one says what it dropped and why.
+The rows with no object are the ones to read first: either the object was never built,
+or it was built somewhere this analysis did not look.
+
+## Objects
+
+The reverse view: every object, with the source member it was built from, or the fact
+that none was found. With its own **Filter objects** box.
+
+An object with no source is one you cannot rebuild, and that is worth knowing before
+you plan the work rather than during it.
+
+## Skipped Sources and Skipped Objects
+
+Members and objects left out: by the skip rules, or, for objects, because their type is
+never built from source. Both carry their own filter box.
+
+These two tabs are what make the result trustworthy. A tool that silently drops rows
+cannot be checked; this one says what it dropped and why. **Check here first when
+something you expected is missing from the other two.**
 
 ## The skip rules
 

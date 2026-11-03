@@ -17,23 +17,20 @@ Everything a `*QRYDFN` holds, in four tabs, including the SQL that does the same
 **Tools4i** in the Activity Bar, then **Native Query Info**. Give it the library and
 the name, and press **Get Info**.
 
-## The four tabs
+## Attributes
 
-| Tab | What it holds |
-|---|---|
-| **Attributes** | What the query is and how it is set up: type, owner, dates and options |
-| **Files** | The files the query reads, each showing **whether its definition still matches** the one the query was built against |
-| **Definition** | The query itself: the fields selected, the record selection, the sort and the joins |
-| **SQL equivalent** | The same query written as SQL |
+What the query is and how it is set up: its type, its owner, its dates and its
+options. The **Filter** box shows only the attributes whose name or value contains the
+text.
 
-Each tab has a **Filter** box that shows only the attributes, files or parts of the
-definition containing the text.
+## Files
 
-## The Files tab is the one that matters first
+The files the query reads, each showing **whether its definition still matches** the
+one the query was built against. Its own **Filter** box narrows the list.
 
-A query definition breaks quietly when a file changes, and this tab says whether this
-one already has. If it has, the report somebody receives by mail has stopped arriving,
-or is about to.
+This is the tab that matters first: a query definition breaks quietly when a file
+changes, and this tab says whether this one already has. If it has, the report
+somebody receives by mail has stopped arriving, or is about to.
 
 The right-click menu on a file row goes where the question usually goes next:
 **File Viewer** for its data, **Object Change Impact Analysis** for what a change to
@@ -43,18 +40,21 @@ library that file lives in.
 **Native Query Level Check** opens the analyzer for this query's whole library, to see
 every query in the same situation rather than this one alone.
 
-## Reading the definition
+## Definition
+
+The query itself: the fields selected, the record selection, the sort and the joins.
 
 **Expand all** and **Collapse all** open and close every section, which is how a long
 definition becomes readable: collapse everything, then open the one section you care
-about.
+about. The **Filter** box shows only the parts containing the text.
 
-## The SQL equivalent
+## SQL equivalent
+
+The same query written as SQL, with **Copy SQL** to take it away.
 
 This is the migration path. When a query has to become something a modern tool can
 run, a report, a view, a job somebody schedules elsewhere, the fourth tab is the
-starting point instead of a reconstruction by hand. **Copy SQL** puts it on the
-clipboard.
+starting point instead of a reconstruction by hand.
 
 ## Keeping it
 

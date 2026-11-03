@@ -29,19 +29,29 @@ For the whole job, read
 **Analyze** finds everything the change would break. **Cancel** stops it, reporting
 nothing.
 
-## The two tabs
+## Results
 
-| Tab | What it shows |
-|---|---|
-| **Results** | Everything the change reaches, with **what has to happen to each one and why it is affected** |
-| **Recompile Order** | The same objects arranged into a safe rebuild sequence: database objects first, then service programs, then programs |
+Everything the change reaches, with **what has to happen to each one and why it is
+affected**.
 
 The "why" column is what makes the result reviewable. An object listed without a
 reason is a list you have to trust; an object listed because a specific file is bound
 into it is a list you can check.
 
+Its **filter** narrows across object, library, type and the action needed, **Copy
+list** puts the `LIBRARY/OBJECT` list on the clipboard, and **Export** writes the
+rows shown to CSV.
+
+## Recompile Order
+
+The same objects arranged into a safe rebuild sequence: database objects first, then
+service programs, then programs.
+
 The order is the part people underestimate. Rebuilding the right objects in the wrong
 order produces a second round of failures that look like new problems and are not.
+
+Its **filter** narrows the steps by object, library or type, **Copy plan** puts the
+ordered sequence on the clipboard, and **Export** writes it to CSV.
 
 ## Reading the recursive result
 

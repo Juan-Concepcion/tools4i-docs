@@ -41,24 +41,38 @@ most questions are answered by two of them.
 
 ## The tabs
 
-| Tab | What it holds |
-|---|---|
-| **Attributes** | Everything the system records about the job: status, subsystem, dates, priorities and limits |
-| **Job Log** | The messages the job has issued, newest last |
-| **Call Stack** | What the job is running right now, innermost call first. The place to look when a job seems stuck |
-| **Library List** | The libraries **this job** searches, in order, plus its current library |
-| **Open Files** | The files the job has open at this moment |
-| **Activation Groups** | The activation groups in the job, and what is running in each |
-| **Locks** | The objects this job holds a lock on. Where to look when another job is waiting |
-| **Definition** | The job description and the values the job started with, before anything changed them |
-| **File Overrides** | The overrides in force, which redirect a file the program opens to a different one |
-| **Commitment Control** | Commitment definitions and their pending changes |
-| **DSPJOB Report** | The full report as text, for anything the tabs do not break out |
+| Tab | What it holds | The question it answers |
+|---|---|---|
+| **Attributes** | Status, subsystem, dates, priorities and limits | What is this job, and is it still running |
+| **Job Log** | The messages the job has issued, newest last | What did it say before it went wrong |
+| **Call Stack** | What the job is running right now, innermost call first | Where is it stuck |
+| **Library List** | The libraries **this job** searches, in order, plus its current library | Why did a call resolve to the wrong copy |
+| **Open Files** | The files the job has open at this moment, with their state | Is it still reading, and from where |
+| **Activation Groups** | The groups in the job, and what is running in each | Why did a scoped override or a commitment definition not apply |
+| **Locks** | The objects this job holds a lock on | Who is holding the file another job is waiting for |
+| **Definition** | The job description and the values the job **started** with | Was it submitted the way we thought |
+| **File Overrides** | The overrides in force | Why did it write to a file nobody expected |
+| **Commitment Control** | Commitment definitions and their pending changes | Is there an uncommitted transaction sitting there |
+| **DSPJOB Report** | The full report as text | Anything the tabs above do not break out |
 
-Two of them answer most of the hard questions. **Library List** describes the job you
-are looking at, not the list your own session is using, which is the answer when a
-program resolved to the wrong copy. **File Overrides** is the answer when a program
-wrote to a file nobody expected.
+Three of them carry most of the hard answers:
+
+- **Library List** describes the job you are looking at, not the list your own session
+  is using. That is the answer when a program resolved to the wrong copy of itself.
+- **Definition** is what the job **started** with, before anything changed it, so a
+  difference between it and the Attributes tab is somebody or something changing the
+  job mid-flight.
+- **Locks** and **Open Files** read together answer the stuck-job question that has
+  two jobs in it: this one holds the lock, that one is waiting.
+
+Four tabs carry a box of their own: **Job Log**, **Call Stack** and **DSPJOB Report**
+highlight the text and step through the matches, and **Definition** filters its
+attributes down to the ones whose name or value contains what you type. The call stack
+box takes a program name, a procedure or a statement number.
+
+The Job Log tab also carries a **Job Log Viewer** button, which opens the same log in
+the [full viewer]({{ site.baseurl }}/tools/job-log-viewer/) when the messages need
+filtering, searching or saving rather than reading.
 
 ## Reading a long call stack
 
@@ -67,7 +81,8 @@ the command entry, the menus and the runtime a job passes through, leaving only 
 own programs, and **the frame numbers keep their real position** so nothing is
 renumbered to look tidier than it is.
 
-Its search box takes a program name, a procedure or a statement number.
+On a job deep inside an application that is the difference between forty frames and
+the six that are yours.
 
 ## Acting on the job
 
