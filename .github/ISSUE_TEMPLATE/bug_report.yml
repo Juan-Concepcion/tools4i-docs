@@ -19,7 +19,7 @@ body:
     attributes:
       label: Tools4i version
       description: You will find it in the Extensions view, or in About Tools4i.
-      placeholder: "1.2.8"
+      placeholder: "1.3.0"
     validations:
       required: true
 

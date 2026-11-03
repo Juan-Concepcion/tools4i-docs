@@ -21,3 +21,7 @@ desktop.ini
 *.tmp
 *.bak
 *~
+
+# GitHub Pages builds the site; a local build should not be committed.
+docs/_site/
+docs/.jekyll-cache/

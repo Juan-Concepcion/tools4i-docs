@@ -9,6 +9,137 @@ Every version requires the
 [Code for IBM i](https://marketplace.visualstudio.com/items?itemName=HalcyonTechLtd.code-for-ibmi)
 extension and an active connection.
 
+## [1.3.0] - 2026-11-01
+
+### Added
+- **A dependency can record which column feeds which**, so the model holds where
+  a value comes from. Name the columns as you draw it, fill them in later, or
+  leave them for when you know.
+- **The columns offered are the ones whose value fits where it is going**, by
+  type and by size. A tick beside each pair opens the list to every column when
+  you know better than the model does.
+- **A link between two tables knows what it is**: a foreign key while its
+  columns are the same type on both sides, a dependency when they are not.
+  Settled whenever the columns change, and said at the time, naming the two
+  columns that decided it.
+- **Two sources selected compare with each other**, from one entry that appears
+  in the menu when there are exactly two of them, on the server and on this
+  machine alike.
+- **Draw a dependency on the diagram**: Ctrl and Alt, click the item that
+  depends, then the one it depends on. An arrow follows the cursor, and the link
+  opens ready for its columns.
+- **The toolbar says when the data model has changes waiting**, and the mark
+  opens the list of what they are, with Save and Discard alongside it wherever
+  that list is shown.
+- **Compare a source with whatever you like**: the file open in the editor, a
+  stream file, a file on this machine, or another member, with this one's own
+  path already filled in. The same five choices sit on a member and on a local
+  file.
+- **Several libraries at once download their sources, generate their metadata
+  and copy their names**, with one folder to choose and one pass for all of
+  them.
+- **A custom layout opens as SQL**, with those columns typed and ready to be
+  filtered, totaled or joined. It carries the filters on the grid, so it brings
+  back the rows you were looking at.
+- **Arrows move a field a byte at a time**, carrying the rest of the layout
+  along, ten at a time with Shift.
+- **Shift reaches further on the row buttons**: a field jumps to the top or the
+  bottom of the list, and Remove takes that field and every row under it, naming
+  what went.
+- **Refresh keeps the filters you typed in the headings and the column you
+  sorted on**, so you can watch one row change without setting the view up
+  again.
+- **The note explaining a tab opens from a question mark**, instead of standing
+  above the work.
+- **The line between the field definitions and the data can be dragged**, to
+  give the room to whichever of the two you are working on. Double-click it to
+  put it back.
+- **A job log downloaded as text with another tool opens in the Job Log
+  Viewer**, with the same filters, search and details as any other.
+
+### Changed
+- **Check on server reads the whole relationship**: every column it names, the
+  type on each side, and the link itself, be it a constraint, a view over a
+  table, a logical over its physical or an index over its table. It only looks,
+  and reads the catalog, so any size costs the same.
+- **Clicking a line in the diagram tells you the whole of it**: how it was
+  recorded, how it is drawn, its column pairs with the type on each side, and
+  whether each pair fits.
+- **A line in the diagram says where the link came from and what it is.** The
+  dash tells extracted from added by hand from worked out, and the head tells a
+  foreign key from a dependency and names columns that fit. An exported image
+  and an exported document read the same way, legend included.
+- **Clicking a menu group runs the option you nearly always want**: a library's
+  Download brings its sources, Navigate lists them, Copy Name copies the plain
+  name, and a member comes down inside its library and source file. The arrow
+  still opens the group for everything else.
+- **Downloading a library is several times faster**, and brings back exactly the
+  same sources, in every character set, with any member it cannot fetch still
+  named.
+- **Download All in Sources Sync is several times faster too**, and a member it
+  cannot bring that way is still fetched on its own.
+- **Copying members to another library is much quicker**, copying the ones you
+  picked together instead of one at a time, and still naming any that could not
+  be copied.
+- **A copy that would replace members already in the target library says so
+  first**, naming how many and which, so a mistyped library name costs nothing.
+- **Tools4i leaves your library list alone**, and is quicker for it. Copying,
+  deleting, renaming, uploading and the rest all keep the list exactly as you
+  set it. Only running your own project commands still applies it, because that
+  is what they expect.
+- **Looking up what a library holds takes one question instead of five**, so
+  downloads, syncs and dependency scans start working sooner.
+- **The Data Model builds quicker on a large library**, reading many source
+  members in one trip instead of one trip each.
+- **A job log of any size scrolls smoothly**, right to the last message. In a
+  log that large each message is kept to one line, with the rest of a long one
+  in its tooltip and in the detail it opens.
+
+### Fixed
+- **The list of messages on a queue uses the whole panel**, and grows with the
+  window.
+- **The help of a message reads the way the system shows it**, broken into its
+  Cause and its Recovery, with each step on its own line, in the job log and in
+  the message queue alike.
+- **The type badge on an item is crisp at any size**, on the canvas, in the
+  legend and in an exported image, however large you export it.
+- **The list of unsaved changes ends with the actions taken**, which is what
+  saving keeps and discarding drops. A panel left open while another one saved
+  puts its mark right as soon as you ask it what is waiting.
+- **Downloading a library brings every source file it holds**, whatever each one
+  is named, leaving out only compile listings and the library's own properties.
+  The dependency graph reads them too.
+- **The library list in Job Info describes the job you are looking at**, read
+  from the same job report as the other details.
+- **Custom fields line up on a file whose columns are not all text**, with each
+  position taken from the width that column really occupies. A layout saved
+  earlier will need those fields moving back, which the new arrows do in a
+  couple of clicks.
+- **A date kept in a numeric field shows as a date**, packed or zoned, and a
+  six-digit date comes out with no extra digits in front.
+- **An ISO date reads the way RPG writes one**, eight digits with the century in
+  them, in the tab and in the SQL alike. A six-digit field marked that way keeps
+  reading as it did.
+- **A view defined in a source member brings its columns**, the long name and
+  the short one, so it can be the far side of a dependency's columns like any
+  table.
+- **A dependency already recorded is not added a second time**, and says so.
+- **A dependency shows its columns everywhere the relationship does**, in the
+  diagram and when two models are compared.
+- **The list of candidate columns scrolls and stays on screen.** It opens on the
+  field, narrows as you type, walks with the arrow keys, and shows each column's
+  type beside its name.
+- **A right-click submenu stays on screen** near the bottom or the right of the
+  window, measured as it opens so that a long option counts for its real width.
+- **The list of values a box remembers stays open while you scroll it**, by its
+  scrollbar or by the wheel, and closes as soon as you click away.
+- **The Stored Procedures Manager lists quickly when a routine's program lives
+  in a system library**, asking for the programs the routines name rather than
+  everything that library holds.
+- **A record that does not fit a custom layout says so in the cell**, in the tab
+  and in the SQL it generates alike, so a file that keeps a different record per
+  key reads cleanly throughout.
+
 ## [1.2.8] - 2026-09-19
 
 ### Added

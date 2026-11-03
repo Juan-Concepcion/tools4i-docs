@@ -8,9 +8,9 @@ IBM i developer tools for Visual Studio Code, built on top of
 [Code for IBM i](https://marketplace.visualstudio.com/items?itemName=HalcyonTechLtd.code-for-ibmi).
 
 Tools4i adds a set of tools for the tasks that come up during the day: finding
-objects and source, searching inside the code, looking at the data, modelling and
+objects and source, searching inside the code, looking at the data, modeling and
 documenting the database, managing jobs and spooled files, editing IBM i objects,
-and analysing what a change might affect. All of it from the editor, and against
+and analyzing what a change might affect. All of it from the editor, and against
 the server.
 
 **Install it:**
@@ -18,6 +18,14 @@ the server.
 ·
 [Open VSX](https://open-vsx.org/extension/tools4i/tools4i)
 (which is also how it reaches IBM Bob, IBM's own build of VS Code)
+
+**Read the guides:** <https://juan-concepcion.github.io/tools4i-docs/>
+
+The list below says what every tool is. The site has a page for each of the 41
+panels, laid out in the same sections as the Tools4i view, plus guides that take one
+job at a time and walk it from the first click to the result: modeling an inherited
+database, working out what a change would break, reading a job log from a system you
+cannot reach, and reading a file whose fields live only in the program.
 
 > **About this repository.** This is the public home of the Tools4i
 > documentation: what the extension does, how to install it, what changed in each
@@ -64,8 +72,9 @@ connection at all.
   type, rename, copy or delete, drill from a library into its objects or sources,
   and **create a new source** from the bar or a row's menu, with the library and
   source file already filled in from where you are. From here you can also
-  **download sources to a local project**, whether one member, a source file or a
-  whole library, choosing how the folders are laid out, together with the metadata
+  **download sources to a local project**, whether one member, a source file, a
+  whole library or several libraries in one pass, choosing how the folders are
+  laid out, together with the metadata
   that lets them be sent back later. Once the sources sit in a folder they are
   within reach of whatever your team uses outside the server: source control and
   versioning, AI-assisted code analysis, or any other product that expects plain
@@ -125,6 +134,11 @@ connection at all.
   Project**.
 - **Sync Server Library**: compare a newer project library against one or more
   ordered base libraries and reconcile the differences.
+- **Compare two sources wherever they are**, from the list in Navigate Server or
+  Navigate Local: against the source you marked first, the file open in the
+  editor, a stream file, a file on this machine, or another member, with the path
+  you came from already filled in. Or pick two in the list and compare them with
+  each other.
 
 ### Transfer
 
@@ -189,18 +203,22 @@ connection at all.
   entry time, resource use). Act on one job or several at once: hold, release, end
   controlled or immediate, change attributes. Jump straight to the job log, the job
   info, its spooled files or the user profile.
-- **Job Info**: a single job across ten tabs: attributes, job log, call stack,
-  library list, open files, activation groups, locks, definition, file overrides
-  and commitment control. Save the whole thing as a snapshot and reopen it later,
-  or import a printed job report to study a job with no connection at all, which is
-  useful when someone sends you the evidence instead of the access.
+- **Job Info**: a single job across eleven tabs: attributes, job log, call stack,
+  library list, open files, activation groups, locks, definition, file overrides,
+  commitment control and the full job report as text. Save the whole thing as a
+  snapshot and reopen it later, or import a printed job report to study a job with
+  no connection at all, which is useful when someone sends you the evidence instead
+  of the access.
 - **Job Log Viewer**: a job log as a table you can actually work through, with
-  time, message ID, severity, type, the program it came from and the text, colour
+  time, message ID, severity, type, the program it came from and the text, color
   coded by severity. Narrow it down to a time window, filter by message type or
   severity from the values present in that log, or search the text with next and
   previous navigation. Expand the second-level text of one message or of all of
-  them at once, and save the log to reopen later, or open one saved earlier, which
-  is how you read a job log from a system you are not connected to.
+  them at once, laid out the way the system shows it, and save the log to reopen
+  later, or open one saved earlier, which is how you read a job log from a system
+  you are not connected to. A job log downloaded as plain text with another tool
+  can be imported as well, and reads back with the same filters, search and
+  details.
 - **Job Description Info**: look up `*JOBD` objects by name and library, with
   wildcards, and read each one's attributes in a grouped grid: the library list a
   job starts with, the job queue and priorities, the output queue, the message
@@ -208,9 +226,10 @@ connection at all.
   program behaves differently depending on how it was submitted. The result can be
   saved and reopened later.
 - **Message Queue Viewer**: browse a message queue filtered by user or originating
-  job, expand second-level help, reply to inquiry messages, and clear what has been
-  seen while inquiries still unanswered stay protected. A queue can be saved and
-  reopened later, which is the simplest way to attach evidence to a ticket.
+  job, expand second-level help laid out the way the system shows it, reply to
+  inquiry messages, and clear what has been seen while inquiries still unanswered
+  stay protected. A queue can be saved and reopened later, which is the simplest way
+  to attach evidence to a ticket.
 
 ### Database
 
@@ -228,12 +247,15 @@ connection at all.
     name, so a "who breaks if I change this record format" question is answered
     before the change, not by the compiler afterwards.
   - **RPG Data Structure**: generated in full free, free or fixed format, with or
-    without positions, initialised from the data type defaults or from the first
+    without positions, initialized from the data type defaults or from the first
     record, named with the prefix and suffix you choose, ready to paste.
   - **Custom fields**: read a file the way a legacy program reads a
     **program-described file**. Give the layout, meaning name, positions, type and
     decimals, by hand or by importing RPG input specs or a positional data
     structure, and the decoded values come back as a normal grid, exportable to CSV.
+    A date kept in a numeric field reads as a date, arrows on each row move a field
+    a byte at a time with the rest of the layout behind it, and a button writes the
+    SQL that returns the same columns, typed and ready to run.
 - **Journal Entries Viewer**: for a journaled file, data area or data queue, list
   its journal entries and decode each record image into the file's own columns,
   with the before and after images of every update side by side. Narrow the search
@@ -258,17 +280,23 @@ connection at all.
 
 ### Data model
 
-Every tool below works on the same copy of the model, and nothing reaches the
-model file until you press **Save changes**, from whichever of them you happen to
-be in. **Discard** puts everything back the way it was saved.
+Every tool below works on the same copy of the model, and nothing reaches the model
+file until you press **Save changes**, from whichever of them you happen to be in.
+**Discard** puts everything back the way it was saved. While changes are waiting the
+toolbar carries a mark, and that mark opens the list of what they are, with Save and
+Discard beside it.
 
 - **Data Model Extractor**: build a data model from the Db2 catalog, from native
   DDS and SQL sources on the server or on disk, or from a DDL script. Whole
   libraries or a single object, merging or replacing, with the result staged until
   you save it.
 - **Data Model Editor**: add items to the model by hand, and edit items, keys,
-  relationships and dependencies that no extraction can know about. Group items
-  into business processes, and publish the model to the IFS for the team.
+  relationships and dependencies that no extraction can know about. Record which
+  column feeds which on any link, choosing from the columns whose value fits where
+  it is going, with a link between two tables counted as a foreign key while its
+  columns are the same type on both sides and as a dependency when they are not.
+  Check any of it against the server, which only reads. Group items into business
+  processes, and publish the model to the IFS for the team.
 - **Implied foreign keys**: find the relationships that were never declared as
   constraints. A table holding every column of another table's key is a candidate,
   rated by confidence. None enters the model on a guess: each is confirmed against
@@ -279,8 +307,11 @@ be in. **Discard** puts everything back the way it was saved.
   files and multi-format logical files drawn over the physicals they are built on,
   alongside tables, views and indexes. Add one item, its related items, or a whole
   business process, and the diagram grows around what you are explaining rather
-  than showing the entire library. Notes can be pinned to the canvas, and diagrams
-  saved, reopened and exported as an image.
+  than showing the entire library. Draw a dependency between two items on the canvas
+  itself, and read from the line where the link came from and what it is:
+  extracted, added by hand or worked out, a foreign key or a dependency, with
+  columns that fit. Notes can be pinned to the canvas, and diagrams saved,
+  reopened and exported as an image or a document, legend and all.
 - **Data Model Dictionary**: a business glossary at column level. One row per
   distinct column definition, because two columns sharing a name but not a data
   type are two different things, and describing them as one produces a wrong
@@ -391,7 +422,7 @@ Run **Tools4i Settings** for a single searchable form covering every setting the
 extension contributes: spooled-file duplication, library compile-order naming, how
 a local source is staged before **Run Action on Server** and where its compile
 errors are shown, object and source reconciliation defaults, diagnostics logging,
-PDF creation, data model storage, colours and shapes, and the protections below.
+PDF creation, data model storage, colors and shapes, and the protections below.
 Each section can go back to what Tools4i ships with **Restore defaults**, which
 also keeps that section following later improvements to those defaults. The same
 settings are available in the VS Code Settings editor by searching for
@@ -438,7 +469,7 @@ Tools4i stands on work done by others:
   and everyone who has contributed to it. Tools4i is built on top of it and depends
   on it; it extends that work rather than replacing it.
 - **Cytoscape.js** and **Dagre**, which draw and lay out the data model diagrams.
-  Every bundled component and its licence is listed in
+  Every bundled component and its license is listed in
   [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
 
 Thanks as well to the IBM i developers whose day-to-day work decided what got
@@ -446,5 +477,5 @@ built: each tool here started as a task someone was doing the slow way.
 
 ## License
 
-MIT. See [LICENSE](LICENSE). The same licence file travels inside the extension
+MIT. See [LICENSE](LICENSE). The same license file travels inside the extension
 package.

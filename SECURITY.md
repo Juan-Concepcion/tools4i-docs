@@ -3,14 +3,14 @@
 What Tools4i does, and does not do, on the machine you install it on.
 
 This page is written for the person who has to approve the extension as much as
-for the person who uses it. If your organisation needs something stated here that
+for the person who uses it. If your organization needs something stated here that
 is missing, ask and it will be added.
 
 ## The short version
 
 - **No network connections of its own.** Nothing in the published package fetches
   a URL, opens a socket or calls home.
-- **No telemetry, no analytics, no account, no licence check.** Nothing is
+- **No telemetry, no analytics, no account, no license check.** Nothing is
   counted, nothing is reported, and there is nothing to sign in to.
 - **One system, and it is yours.** The only machine Tools4i talks to is your own
   IBM i, over the connection Code for IBM i already holds.
@@ -20,7 +20,7 @@ is missing, ask and it will be added.
   [its source is published here](server/IUDUPSP3.clle). A setting switches that
   feature to a mode that compiles nothing, or turns it off altogether, and on
   production the deploy is blocked by default.
-- **MIT licensed**, with the licence travelling inside the package.
+- **MIT licensed**, with the license traveling inside the package.
 
 ## Network
 
@@ -120,7 +120,7 @@ What Tools4i writes on your machine is what you ask it to write:
 
 - **Settings**, in your own VS Code settings, like any other extension.
 - **A few small preferences your editor keeps for any extension**: which tools you
-  starred as favourites, and which panels were open last time if you asked for
+  starred as favorites, and which panels were open last time if you asked for
   them to be reopened.
 - **Files you save from a panel**: downloaded sources, exported CSV files,
   snapshots of a job log, a job, a message queue or an analysis, data model files,
@@ -159,14 +159,14 @@ total once their own dependencies are counted:
 | cytoscape-dagre | Connects the other two |
 | dagre | Lays the diagrams out |
 
-Every bundled component and its licence is listed in
+Every bundled component and its license is listed in
 [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md), which also travels inside the
 package.
 
 The CL program described above travels in the package as well, as text, which is
 how it reaches your system when you ask for it.
 
-Tools4i itself is MIT licensed, and the licence file is included in the published
+Tools4i itself is MIT licensed, and the license file is included in the published
 package.
 
 ## Package integrity

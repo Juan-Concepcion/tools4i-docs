@@ -17,7 +17,7 @@
 | **[Code for IBM i](https://marketplace.visualstudio.com/items?itemName=HalcyonTechLtd.code-for-ibmi)** | Tools4i is built on top of it and declares it as a required dependency, so the editor installs it for you. |
 | **An active IBM i connection** | Tools4i works through the connection Code for IBM i already holds. It never opens a connection of its own, and it will not activate without that extension present. |
 
-Nothing else is needed. No account, no licence key, no server-side installation.
+Nothing else is needed. No account, no license key, no server-side installation.
 
 ## From the VS Code Marketplace
 

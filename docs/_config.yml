@@ -1,0 +1,44 @@
+# The documentation site for Tools4i, built by GitHub Pages from this folder.
+# The repository README stays the catalog of what the extension holds; this site is the
+# place for guides that walk through a job from start to finish.
+
+title: Tools4i
+description: IBM i developer tools for Visual Studio Code, built on Code for IBM i.
+
+remote_theme: just-the-docs/just-the-docs@v0.12.0
+
+url: https://juan-concepcion.github.io
+baseurl: /tools4i-docs
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+  - jekyll-include-cache
+
+search_enabled: true
+search:
+  heading_level: 3
+  previews: 3
+  button: false
+
+heading_anchors: true
+color_scheme: dark
+
+aux_links:
+  Marketplace: https://marketplace.visualstudio.com/items?itemName=tools4i.tools4i
+  Open VSX: https://open-vsx.org/extension/tools4i/tools4i
+  Repository: https://github.com/Juan-Concepcion/tools4i-docs
+aux_links_new_tab: true
+
+nav_external_links:
+  - title: Every tool, in short
+    url: https://github.com/Juan-Concepcion/tools4i-docs#features
+  - title: Release notes
+    url: https://github.com/Juan-Concepcion/tools4i-docs/blob/main/CHANGELOG.md
+  - title: Report a problem
+    url: https://github.com/Juan-Concepcion/tools4i-docs/issues/new/choose
+
+footer_content: Tools4i is MIT licensed. Questions and reports go to tools4i.support@gmail.com
+
+exclude:
+  - vendor

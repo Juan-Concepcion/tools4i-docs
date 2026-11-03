@@ -19,6 +19,16 @@ y contra el servidor.
 [Open VSX](https://open-vsx.org/extension/tools4i/tools4i)
 (que es además la vía por la que llega a IBM Bob, la compilación de VS Code de IBM)
 
+**Las guías:** <https://juan-concepcion.github.io/tools4i-docs/>
+
+La lista de abajo dice qué es cada herramienta. El sitio tiene una página por cada
+uno de los 41 paneles, con las mismas secciones que la vista de Tools4i, y además
+guías que toman un trabajo entero y lo recorren desde el primer clic hasta el
+resultado: modelar la base de datos de una aplicación heredada, averiguar qué rompe
+un cambio antes de hacerlo, leer el registro de un trabajo de un sistema al que no
+tiene acceso, y leer un archivo cuyos campos solo viven en el programa. Están en
+inglés por ahora.
+
 > **Sobre este repositorio.** Esta es la casa pública de la documentación de
 > Tools4i: qué hace la extensión, cómo se instala, qué cambió en cada versión y
 > dónde reportar un problema. El código fuente de la extensión no se publica aquí.
@@ -65,16 +75,16 @@ se puede volver a abrir después, en otra máquina o sin conexión alguna.
 - **Navigate Server**: recorrer bibliotecas, objetos y miembros fuente. Filtros por
   nombre, tipo, atributo, descripción y fecha de creación o modificación, con
   columnas ordenables y redimensionables, filtros rápidos y exportación a CSV.
-  Cambiar una descripción o un tipo de fuente, renombrar, copiar o eliminar, bajar
-  de una biblioteca a sus objetos o a sus fuentes, y **crear un fuente nuevo** desde
-  la barra o desde el menú de una fila, con la biblioteca y el archivo fuente ya
-  puestos según dónde se esté. Desde aquí también se pueden **descargar fuentes a un
-  proyecto local**, ya sea un miembro, un archivo fuente o una biblioteca entera,
-  eligiendo cómo se organizan las carpetas, junto con los metadatos que permiten
-  devolverlos después. Con los fuentes en una carpeta quedan al alcance de lo que su
-  equipo use fuera del servidor: control de versiones, análisis de código asistido
-  por inteligencia artificial, o cualquier otro producto que espere archivos y no
-  miembros de una biblioteca.
+  Cambiar una descripción o un tipo de fuente, renombrar, copiar o eliminar, bajar de
+  una biblioteca a sus objetos o a sus fuentes, y **crear un fuente nuevo** desde la
+  barra o desde el menú de una fila, con la biblioteca y el archivo fuente ya puestos
+  según dónde se esté. Desde aquí también se pueden **descargar fuentes a un proyecto
+  local**, ya sea un miembro, un archivo fuente, una biblioteca entera o varias
+  bibliotecas de una vez, eligiendo cómo se organizan las carpetas, junto con los
+  metadatos que permiten devolverlos después. Con los fuentes en una carpeta quedan
+  al alcance de lo que su equipo use fuera del servidor: control de versiones,
+  análisis de código asistido por inteligencia artificial, o cualquier otro producto
+  que espere archivos y no miembros de una biblioteca.
 - **Navigate Local**: el mismo navegador, con sus filtros, columnas ordenables y
   redimensionables, filtros rápidos, selección de filas con Ctrl y Mayúsculas, y las
   acciones de cada fila, aplicado a una carpeta de proyecto local en lugar del
@@ -135,6 +145,11 @@ se puede volver a abrir después, en otra máquina o sin conexión alguna.
   lugar de miembro por miembro, use **Upload Local Project**.
 - **Sync Server Library**: comparar una biblioteca de proyecto más reciente contra
   una o varias bibliotecas base ordenadas, y reconciliar las diferencias.
+- **Comparar dos fuentes estén donde estén**, desde la lista de Navigate Server o
+  Navigate Local: contra la fuente que marcó primero, contra el archivo abierto en
+  el editor, contra un fichero de flujo, contra un fichero de su máquina o contra
+  otro miembro, con la ruta de donde viene ya puesta. O seleccionar dos en la lista
+  y compararlos entre sí.
 
 ### Transferencia
 
@@ -202,9 +217,10 @@ se puede volver a abrir después, en otra máquina o sin conexión alguna.
   la vez: retener, liberar, finalizar de forma controlada o inmediata, cambiar
   atributos. Y saltar directamente al registro del trabajo, a su información, a sus
   archivos en spool o al perfil del usuario.
-- **Job Info**: un trabajo en diez pestañas: atributos, registro, pila de llamadas,
-  lista de bibliotecas, archivos abiertos, grupos de activación, bloqueos,
-  definición, sustituciones de archivo y control de compromiso. Se guarda todo como
+- **Job Info**: un trabajo en once pestañas: atributos, registro, pila de
+  llamadas, lista de bibliotecas, archivos abiertos, grupos de activación,
+  bloqueos, definición, sustituciones de archivo, control de compromiso y el
+  informe completo del trabajo como texto. Se guarda todo como
   instantánea para reabrirla después, o se importa un informe impreso del trabajo
   para estudiarlo sin conexión alguna, útil cuando alguien le envía la evidencia en
   lugar del acceso.
@@ -213,9 +229,11 @@ se puede volver a abrir después, en otra máquina o sin conexión alguna.
   texto, con color según la severidad. Acotarlo a una ventana de tiempo, filtrar por
   tipo o severidad entre los valores presentes en ese registro, o buscar en el texto
   con navegación entre coincidencias. Expandir el texto de segundo nivel de un
-  mensaje o de todos a la vez, y guardar el registro para reabrirlo después, o abrir
-  uno guardado antes, que es la forma de leer el registro de un sistema al que no
-  está conectado.
+  mensaje o de todos a la vez, presentado como lo muestra el sistema, y guardar el
+  registro para reabrirlo después, o abrir uno guardado antes, que es la forma de
+  leer el registro de un sistema al que no está conectado. Un job log descargado
+  como texto con otra herramienta también se puede importar, y se lee con los
+  mismos filtros, la misma búsqueda y el mismo detalle.
 - **Job Description Info**: consultar objetos `*JOBD` por nombre y biblioteca, con
   comodines, y leer sus atributos en una rejilla agrupada: la lista de bibliotecas
   con la que arranca un trabajo, la cola de trabajos y las prioridades, la cola de
@@ -223,10 +241,10 @@ se puede volver a abrir después, en otra máquina o sin conexión alguna.
   respuesta cuando un mismo programa se comporta distinto según cómo se sometió. El
   resultado se puede guardar y reabrir después.
 - **Message Queue Viewer**: recorrer una cola de mensajes filtrada por usuario o por
-  trabajo de origen, expandir la ayuda de segundo nivel, responder mensajes de
-  consulta, y depurar lo ya visto mientras las consultas sin responder quedan
-  protegidas. Una cola se puede guardar y reabrir después, que es la forma más simple
-  de adjuntar evidencia a un ticket.
+  trabajo de origen, expandir la ayuda de segundo nivel presentada como la muestra el
+  sistema, responder mensajes de consulta, y depurar lo ya visto mientras las
+  consultas sin responder quedan protegidas. Una cola se puede guardar y reabrir
+  después, que es la forma más simple de adjuntar evidencia a un ticket.
 
 ### Base de datos
 
@@ -252,7 +270,10 @@ se puede volver a abrir después, en otra máquina o sin conexión alguna.
     un **archivo descrito por programa**. Dé el layout, es decir nombre, posiciones,
     tipo y decimales, a mano o importando especificaciones de entrada de RPG o una
     estructura de datos posicional, y los valores decodificados vuelven como una
-    rejilla normal, exportable a CSV.
+    rejilla normal, exportable a CSV. Una fecha guardada en un campo numérico se lee
+    como fecha, las flechas de cada fila mueven un campo byte a byte con el resto
+    del layout detrás, y un botón escribe el SQL que devuelve esas mismas columnas,
+    tipadas y listas para ejecutar.
 - **Journal Entries Viewer**: para un archivo, un área de datos o una cola de datos
   con journal, listar sus asientos y decodificar cada imagen de registro en las
   propias columnas del archivo, con las imágenes anterior y posterior de cada
@@ -282,28 +303,37 @@ se puede volver a abrir después, en otra máquina o sin conexión alguna.
 
 Todas las herramientas de abajo trabajan sobre la misma copia del modelo, y nada
 llega al archivo del modelo hasta que se pulsa **Save changes**, desde cualquiera de
-ellas. **Discard** lo devuelve todo a como estaba guardado.
+ellas. **Discard** lo devuelve todo a como estaba guardado. Mientras hay cambios
+esperando, la barra de herramientas lleva una marca, y esa marca abre la lista de
+cuáles son, con Save y Discard al lado.
 
 - **Data Model Extractor**: construir un modelo de datos desde el catálogo Db2, desde
   fuentes nativas DDS y SQL del servidor o del disco, o desde un script DDL.
   Bibliotecas completas o un solo objeto, fusionando o reemplazando, con el resultado
   en un área temporal hasta que usted lo guarde.
 - **Data Model Editor**: añadir elementos al modelo a mano, y editar elementos,
-  claves, relaciones y dependencias que ninguna extracción puede conocer. Agrupar
-  elementos en procesos de negocio, y publicar el modelo en el IFS para el equipo.
+  claves, relaciones y dependencias que ninguna extracción puede conocer. Registrar
+  qué columna alimenta a cuál en cualquier enlace, eligiendo entre las columnas cuyo
+  valor cabe donde va, con un enlace entre dos tablas contado como clave foránea
+  mientras sus columnas sean del mismo tipo en ambos lados y como dependencia cuando
+  no lo sean. Comprobar cualquiera de ellos contra el servidor, que solo lee.
+  Agrupar elementos en procesos de negocio, y publicar el modelo en el IFS para el
+  equipo.
 - **Claves foráneas implícitas**: encontrar las relaciones que nunca se declararon
   como restricciones. Una tabla que contiene todas las columnas de la clave de otra
   es una candidata, con su nivel de confianza. Ninguna entra al modelo por
   suposición: cada una se confirma contra el catálogo o contra los propios datos,
   contando los registros que quedarían huérfanos.
-- **Data Model Viewer**: aquí es donde se construyen los **diagramas
-  Entidad-Relación (ERD)**, incluidos los elementos particulares de IBM i, con
-  archivos físicos, archivos lógicos y lógicos multiformato dibujados sobre los
-  físicos sobre los que se construyen, junto a tablas, vistas e índices. Se agrega un
-  elemento, sus relacionados, o todo un proceso de negocio, y el diagrama crece
-  alrededor de lo que se quiere explicar en lugar de mostrar la biblioteca entera. Se
-  pueden fijar notas al lienzo, y guardar, reabrir y exportar los diagramas como
-  imagen.
+- **Data Model Viewer**: aquí es donde se construyen los **diagramas Entidad-Relación
+  (ERD)**, incluidos los elementos particulares de IBM i, con archivos físicos,
+  archivos lógicos y lógicos multiformato dibujados sobre los físicos sobre los que
+  se construyen, junto a tablas, vistas e índices. Se agrega un elemento, sus
+  relacionados, o todo un proceso de negocio, y el diagrama crece alrededor de lo que
+  se quiere explicar en lugar de mostrar la biblioteca entera. Se puede dibujar una
+  dependencia entre dos elementos en el propio lienzo, y leer en la línea de dónde
+  salió el enlace y qué es: extraído, añadido a mano o deducido, clave foránea o
+  dependencia, con columnas que encajan. Se pueden fijar notas al lienzo, y guardar,
+  reabrir y exportar los diagramas como imagen o como documento, con su leyenda.
 - **Data Model Dictionary**: un glosario de negocio a nivel de columna. Una fila por
   definición distinta de columna, porque dos columnas que comparten el nombre pero no
   el tipo de dato son dos cosas distintas, y describirlas como una sola produce un
