@@ -55,10 +55,30 @@ you want after the first look. The **filter** box narrows by name, with wildcard
 | **Download (replace)** | Brings the server copy over the local file |
 | **Upload (create on Server)** | For a member that is only local |
 | **Download (create local)** | For a member that is only on the server |
+| **Create source file on Server** | When the target source file does not exist yet |
+| **Sync description** | Carries the member text across, without touching the content |
+| **Sync metadata (CCSID / record length)** | Brings the local metadata in line with the server member |
+| **Delete local...**, **Delete Server member...** | Both ask first |
+| **Reveal local in Explorer** | |
+| **Copy Name**, **Copy local path**, **Copy member path** | |
+| **Re-compare** | Re-reads that one row |
 
 The create and replace entries are separate on purpose: the one you are offered says
 what will happen, so a member that does not exist yet is never silently created by a
 button labeled "replace".
+
+## Acting on the whole set
+
+Three entries work on everything the comparison found, not on the row you are on:
+
+| Entry | What it does |
+|---|---|
+| **Upload all out-of-sync** | Sends every member that differs or is local-only |
+| **Download all out-of-sync** | Brings down every member that differs or is server-only |
+| **Re-compare this source file** | Reads that source file again, after a round of uploads |
+
+Run a **Re-compare** after any bulk action. It is the only way to see that what you
+sent actually landed, rather than assuming it did.
 
 ## Bringing a lot down at once
 

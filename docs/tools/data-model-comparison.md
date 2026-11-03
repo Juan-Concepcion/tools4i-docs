@@ -60,13 +60,14 @@ why the two slow options are off by default rather than hidden.
 Every difference is stated as **work to do in your model**: add, remove, update. Not
 as a neutral list of discrepancies you then have to interpret.
 
-Each row carries **To do**, **Before** and **After**, so what the change actually is
-can be read without opening anything. Double-click a row to see the object or
+Each row carries the item's **schema**, its **system** and **long** names, the
+**source** it came from, and then **To do**, **Before** and **After**, so what the
+change actually is can be read without opening anything. Double-click a row to see the object or
 dependency in full, with every difference marked on it.
 
 ## Only what can break a program
 
-**Recompile only** shows just the changes that can level-check a compiled program:
+**Needs recompile only** shows just the changes that can level-check a compiled program:
 a column added, removed or retyped, a key change, a record-format change.
 
 That turns a comparison of four hundred differences into the ten that will stop

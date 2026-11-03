@@ -43,10 +43,17 @@ asks for the programs the routines name rather than for everything that library 
 | **View parameters** | The parameter list, with types and direction |
 | **Generate CALL template** | A `CALL` with the parameters in place, ready to fill in. **Copy** puts it on the clipboard |
 | **Run...** | Calls the routine on the server with the values you give. It runs for real: anything it changes, it changes |
-| **Drop selected...** | On one row or on several, with the count in the label |
+| **Drop...** | One row. On a selection it becomes **Drop selected (N)...** |
+| **Copy Name** | **Name**, **Name and Location**, **Specific Name** or **External Program** |
 
-The template is the part that saves the time. Getting the parameter order and types
+The template is the part that saves the time: getting the parameter order and types
 right by hand is where the typos live.
+
+The **specific name** is the one to copy when a schema holds several overloads of the
+same routine. It is what identifies this one, and what a drop has to name.
+
+A **quick filters** switch adds a box over each column of the list, for narrowing what
+is already there without asking the server again.
 
 ## Keeping the list
 

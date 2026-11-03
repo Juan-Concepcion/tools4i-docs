@@ -8,6 +8,7 @@ permalink: /tools/data-model/
 
 # Data model
 
-Building, editing, drawing and documenting a model of the database, and comparing it against what is there now.
+Building, editing, drawing and documenting a model of the database, and comparing it
+against what is there now.
 
 One page per panel, in the order the side bar lists them.

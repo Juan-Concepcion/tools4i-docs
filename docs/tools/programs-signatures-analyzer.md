@@ -50,6 +50,12 @@ IBM-supplied ones from the view.
 The third tab is the one that finds the cause rather than the symptom: twenty callers
 failing usually means one service program was rebuilt with a changed export list.
 
+## Acting on a row
+
+**Open Source (read only)** opens the caller's source, and **Copy Caller Name**,
+**Copy Service Program Name** and **Name and Library** put the names where a rebind
+command can use them.
+
 ## What to do with it
 
 Rebind the callers, or restore the signature. Both are valid. The point of the list is

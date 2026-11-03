@@ -58,9 +58,11 @@ The right-click menu offers:
 - **Open Source (read only)**,
 - **Run action on N objects...**, which runs your own compile action over the
   selection,
-- **Copy source of N objects to a library...**.
+- **Copy source of N objects to a library...**,
+- **Save objects to a save file...**, which is the cheapest backup before a rebuild:
+  the objects as they are now, in one file, before anything is recompiled over them.
 
-That last pair is what turns the analysis into the rebuild without retyping a list of
+The last three are what turn the analysis into the rebuild without retyping a list of
 forty names.
 
 ## Taking it out

@@ -65,6 +65,32 @@ match came from, and the verdict.
 **Navigate to Library** jumps from a row into
 [Navigate Server]({{ site.baseurl }}/tools/navigate-server/) on that library.
 
+## Acting on a row
+
+| Entry | What it does |
+|---|---|
+| **Diff (Base to Newer)** | The two sides side by side |
+| **Copy from Base** | Brings the base version into the newer library as it is |
+| **Copy from Base and Re-qualify to Newer** | Brings it across and points its qualifiers at the newer library |
+| **Re-qualify from Base** / **Re-qualify to Newer** | Changes which library the code refers to, without copying |
+| **Remove from Newer** | Takes out what the base does not have |
+| **Reconcile with Base...** | Does the whole member in one action |
+| **Copy Name**, **Copy Location** | |
+| **Refresh comparison** | Re-reads after you have acted |
+
+The re-qualify pair is what you want when development and production hold the same
+objects in differently named libraries, which is most shops: the code is right, the
+library name in it is not.
+
+## Binding directory entries too
+
+The comparison is not only source members. A binding directory in the newer library
+is compared entry by entry against the base, with its own verdicts, **BinDir Entry**
+and **BinDir Entry and Qualifier**, and the same actions.
+
+That matters because a promotion that carries the programs but not the binding
+directory entry fails at the next build, not at this one.
+
 ## Copying members across
 
 Copying the members you picked is done together rather than one at a time, which is

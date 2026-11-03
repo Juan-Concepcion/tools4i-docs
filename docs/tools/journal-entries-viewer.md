@@ -40,8 +40,12 @@ back.
 
 ## The result
 
-Timestamp, operation, entry type, user, job and program, then the record image decoded
-into the file's own columns.
+Timestamp, operation, entry type, user, job and program, the **relative record
+number**, and then the record image decoded into the file's own columns.
+
+The record number is the one to note when you are following a single row through a
+day: it stays the same across the write, the updates and the delete, while everything
+else about the entry changes.
 
 An **update** is two images, before and after, shown side by side. The changed value
 is the one that differs, which sounds obvious until you have tried to find it in two

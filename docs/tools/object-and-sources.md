@@ -68,6 +68,21 @@ findings from being buried under the normal ones:
 There is also a switch for objects whose source lives **outside** the libraries being
 analyzed, which is the normal case for a shop that keeps sources and objects apart.
 
+## Acting on a row
+
+| Entry | What it does |
+|---|---|
+| **Open Source (read only)** | |
+| **View data (File Viewer)** | On a row whose object is a file |
+| **Copy source of N...** | Copies the sources of the selection to a library |
+| **Copy object of N...**, **Save object of N...** | Copies them, or saves them into a save file |
+| **Add found library(ies) to list** | When a counterpart was found outside the libraries you listed, this adds the library it was found in to the analysis and runs again |
+| **Copy source name**, **Copy object name**, **Name and Location** | |
+
+The last one closes the loop on **Look for candidates outside the list**: the search
+finds the object in a library you did not name, and one click brings that library into
+the comparison properly.
+
 ## Keeping it
 
 **Save** writes the result as a snapshot and **Open...** brings it back, which is how

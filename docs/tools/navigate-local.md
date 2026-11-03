@@ -84,8 +84,9 @@ project suit everybody.
 | **Run Action on Server...** | Stages the source into the library the project names and runs your own action against it |
 | **Upload to Server (replace)...** | Straight back over the member it mirrors |
 | **Copy...** | Within the project |
-| **Copy Name** | **File Name**, or **Name and Path** |
-| **Reveal in File Explorer** | |
+| **Copy Name** | **File Name**, **Name and Path**, or **Full path**. On a selection, **Names and Paths** |
+| **Open Folder in Workspace** | Adds the project folder to the VS Code workspace, so the editor's own file tree and search cover it too |
+| **Reveal in File Explorer** | Also offered as **Reveal in Explorer** on a folder row |
 | **Select for Compare**, **Compare with** | **Active file**, **IFS file...**, **Local file...**, **Member...**, or **Selected** |
 | **Delete...** | |
 

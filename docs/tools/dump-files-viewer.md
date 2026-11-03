@@ -48,7 +48,8 @@ becomes readable.
 
 Two filters earn their place:
 
-- **Indicators that are on**, which turns a wall of `0` into the handful that matter.
+- **On only**, on the Indicators tab, which turns a wall of `0` into the handful that
+  matter.
 - **Hide defaults** on Variables, which drops the ones still holding their initial
   value.
 
@@ -65,6 +66,11 @@ The dump and the code that produced it end up side by side, which is the whole p
 
 On the **Files** tab, a record buffer can be read as the file's own fields rather than
 as a block of bytes. The value that was wrong is usually in a field, not at an offset.
+
+Each field is shown with its value **and its hex**, side by side. That matters more
+than it sounds: a field that looks empty and a field full of `x'40'` look identical
+until you see the bytes, and a packed field that was never initialized shows there and
+nowhere else.
 
 **Close** goes back from the fields to the dump.
 

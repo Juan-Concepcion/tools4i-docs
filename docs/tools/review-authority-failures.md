@@ -46,7 +46,8 @@ The row menu also jumps to the context around the failure:
 
 - **User info** for the profile,
 - **Job info** and **Job log** for the job it happened in,
-- **Object Change Impact** for the object involved.
+- **Object Change Impact** for the object involved,
+- **Reveal in Navigate**, to see the object in its library.
 
 ## Taking it out
 

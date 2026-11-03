@@ -39,7 +39,8 @@ something with it once found.
 | **Created** between two moments | off | Tick the box to use it |
 
 The combination that works most often is user plus a time window. **Find** runs it,
-and the filter block folds away once the list is up.
+and the filter block folds away once the list is up. A **quick filters** switch adds a
+box over each column for narrowing what is already on screen.
 
 The **download folder** beside them is where downloaded text and PDF files are saved.
 

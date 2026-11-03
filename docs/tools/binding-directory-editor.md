@@ -37,7 +37,8 @@ which, so the same button never does the unexpected thing.
 | **Created** | |
 | **State** | New, changed or removed, for the edits not yet applied |
 
-Every column filters, and the filter row is toggled from the bar.
+Every column filters, and the **quick filters** switch on the bar shows or hides that
+row of boxes.
 
 ## Editing
 

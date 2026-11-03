@@ -35,6 +35,11 @@ A query definition breaks quietly when a file changes, and this tab says whether
 one already has. If it has, the report somebody receives by mail has stopped arriving,
 or is about to.
 
+The right-click menu on a file row goes where the question usually goes next:
+**File Viewer** for its data, **Object Change Impact Analysis** for what a change to
+it would break, **Reveal in Navigate**, and **Add library to library list** for the
+library that file lives in.
+
 **Native Query Level Check** opens the analyzer for this query's whole library, to see
 every query in the same situation rather than this one alone.
 

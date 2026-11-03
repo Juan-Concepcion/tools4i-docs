@@ -60,7 +60,8 @@ Two more controls sit beside it:
 | **Type** | `*PGM`, `*FILE`, `*SRVPGM`, and so on |
 | **Attribute** | `RPGLE`, `PF`, `LF`, `CLLE`, `SQLRPGLE` |
 | **Description** | The text |
-| **Last modified** and **Created** | The two dates |
+| **Last modified**, **Created**, **Last used** | The three dates. The last one is how you find what nobody has run in years |
+| **Lines** | How many lines a source member holds |
 | **File** and **Library** | Where it lives |
 
 Columns sort and resize. **Export** writes the rows currently shown, with the filters
@@ -86,6 +87,7 @@ belongs to, read from and written to `PROJECT.PROPERTIES` in that library:
 | **Refresh** | Reads the properties again in case somebody else changed them. Anything unsaved is discarded, and it asks first |
 | **Open raw file** | Opens the properties member in the editor. Saving it refreshes this section |
 | **Project Commands** | The commands that prepare this library before a build can run. Opens the list to edit and to run |
+| **Actions** | A small menu that gathers the two above: keep this library's properties, or read them again |
 
 Because the properties live **in the library**, the whole team picks up the same ones.
 
@@ -103,7 +105,7 @@ want, and the arrow opens the rest.
 | **New source...** | In the same source file |
 | **Run Action...** | Your own Code for IBM i action |
 | **Copy...** | To another library or source file |
-| **Copy Name** | Name, or **Name and Location** |
+| **Copy Name** | Name, or **Name and Location**. On a selection it becomes **Copy Names** |
 | **Download...** | **Member**, **File to Member**, or **Library to File to Member**, which is the folder depth you get |
 | **Generate Metadata** | The descriptions, types and dates that let the sources be sent back later |
 | **Upload and Replace...** | Straight back over the member it came from |

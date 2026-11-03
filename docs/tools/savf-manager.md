@@ -29,6 +29,10 @@ Library, name, description, **objects**, **saved libraries**, compression, **siz
 Size and updated together answer most of the questions a full disk raises, and
 "objects" says whether the save file is empty without opening it.
 
+**Compression** is one of `*NO`, `*LOW`, `*MEDIUM`, `*HIGH`, `*YES` or `*DEV`, which is
+worth reading before a restore: a heavily compressed save file costs processor time to
+read back, and that is the difference between a ten-minute restore and an hour.
+
 ## The right-click menu
 
 | Entry | What it does |
@@ -42,6 +46,10 @@ Size and updated together answer most of the questions a full disk raises, and
 | **Clear...**, **Delete...** | Both ask first |
 | **Copy Name** | Name, or **Name and location** |
 | **Reveal in Navigate** | Opens it in the browser |
+| **Filter to this library**, **Filter to this type** | Narrows the list to what you clicked, without retyping a filter |
+
+Inside the object list, **Show object detail** opens everything the save file records
+about one saved object, which is how you check a restore will bring what you expect.
 
 **Restore this object to...** is the common case and the awkward one everywhere else:
 you want that one program back, into a test library, not over the top of production.

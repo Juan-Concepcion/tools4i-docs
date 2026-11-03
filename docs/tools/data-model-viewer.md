@@ -35,8 +35,8 @@ a diagram is something you build, not the library drawn for you.
 
 | Button | What it does |
 |---|---|
-| **Load diagram** | Opens a saved diagram, either from a local file or from one kept inside the data model |
-| **Save diagram** | Saves the arrangement, the notes and the filters, to a local file or into the data model |
+| **Load diagram** | Opens a saved diagram: **from a local file**, or **from the data model**, where diagrams are kept inside the model file itself |
+| **Save diagram** | Saves the arrangement, the notes and the filters, **to a local file** or **to the data model** |
 | **Export PNG** | Opens the export dialog described [below](#the-export-dialog) |
 | **Export documentation** | Writes a Markdown file with a diagram of the canvas plus each item's details |
 | **Add to Diagram** | Adds a single item, every item matching a name, or a whole process |
@@ -52,8 +52,8 @@ a diagram is something you build, not the library drawn for you.
 
 ## The item type filters
 
-Six checkboxes, all on at first. They do not remove anything from the model; they
-decide what the canvas draws.
+**Item Types** opens them: six checkboxes, all on at first. They do not remove
+anything from the model; they decide what the canvas draws.
 
 | Filter | What it covers |
 |---|---|
@@ -80,6 +80,10 @@ what you are explaining is the data and not the access paths.
 Both the legend and the minimap have a close button of their own, so they can also be
 dismissed from the panel rather than from the toolbar.
 
+The summary of the model, where the panel says which file it is working on, carries a
+**Reveal file** button that shows that file in the operating system's file explorer.
+Useful when two people are not sure they are looking at the same model.
+
 ## Working on the canvas
 
 **Selecting.** With multi-select off, a click selects one item. With it on, Ctrl+click
@@ -100,6 +104,21 @@ its columns. Releasing either key cancels.
 
 Click a line and the inspector gives you the whole of it: how it was recorded, how it
 is drawn, its column pairs with the type on each side, and whether each pair fits.
+
+On a declared foreign key it also shows what the constraint itself says: its name, the
+items it **references**, its **on delete** and **on update** rules, and its **check
+clause** when it has one. Those four are the difference between "these two are
+related" and "the database will refuse the delete".
+
+## Adding items from a list
+
+**Add to Diagram** opens a list of what the model holds. An item already on the canvas
+is marked as such; every other row carries an **Add** button, so a diagram can be
+built row by row without closing the dialog.
+
+The same dialog adds a whole **process**, which is the fast way to draw a subject
+rather than a set of files, and the relationship rows show each link's **kind** beside
+the items it joins.
 
 ## Right-click on an item
 

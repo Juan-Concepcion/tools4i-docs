@@ -45,7 +45,7 @@ That is what makes the second question practical: not "where is this field used"
 |---|---|
 | **All terms** | A member matches only if every term appears somewhere in it, on any line |
 | **Same line** | Stricter: every term has to appear together on one line. Use it when the terms belong to the same statement |
-| **Any term** | Widest: a member matches as soon as any one term is found |
+| **At least one term** | Widest: a member matches as soon as any one term is found |
 
 Two switches sit with them:
 
@@ -54,10 +54,10 @@ Two switches sit with them:
 
 ### The column range
 
-By default the whole line is searched, wherever the text sits. Switch to a **range**
-and give a first and last column, which is what fixed-format sources need: a field
-always sits in the same positions, and the comment area does not have to be read at
-all. The default range is 1 to 100.
+By default **every character on the line** is searched, wherever the text sits. Switch
+to a **range** and give a first and last column, which is what fixed-format sources
+need: a field always sits in the same positions, and the comment area does not have to
+be read at all. The default range is 1 to 100.
 
 ## Where to look, and where not to
 

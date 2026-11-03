@@ -42,6 +42,23 @@ For the whole job, read
 | **Items excluded** | Items taken out of the model, skipped by every extraction until you include them again |
 | **Health** | Missing, duplicate and orphan items, and dangling relationships |
 
+### What the tables show
+
+**Items** carries the schema, the name (short and long), the type, its **keys**, how
+many **relationships** touch it, its **note**, the **source** it came from, and the
+**result** of the last action on it.
+
+**Dependencies** carries the child item, what it **depends on**, the parent item, and
+the same source and result.
+
+**Implied FK** is the widest: child and parent as **references** and **referenced**,
+the **column pairs**, the **confidence**, and after a server confirmation the
+**number of records**, the **orphan records** and the **percentage that match**, which
+is the number the confidence thresholds are read against.
+
+An item can carry a **note** of its own, and a diagram can pin that note beside the
+item on the canvas.
+
 Above the tables, a **source filter** shows items from every source or narrows to one,
 and the type and kind chips count what is in front of you and filter to it in a click.
 Two tick boxes narrow the Items and Dependencies tabs to the **duplicates** only.
@@ -71,6 +88,26 @@ view over a table, a logical over its physical or an index over its table. It on
 looks, writes nothing anywhere, and reports what does not match instead of changing
 it.
 
+## The right-click menu on an item
+
+The order is deliberate: the entries that change nothing come first, then the ones
+that edit the model, then the two that take the item out of it.
+
+| Entry | What it does |
+|---|---|
+| **Edit** | Opens the item form |
+| **Copy name** | **System name**, **Long name**, or **Qualified**, as schema and name. On a selection, **Copy names** |
+| **Reassign schema...** | Moves the item to another schema, which is the routine fix after extracting with the wrong default |
+| **Delete** | Takes it out. The next extraction brings it back |
+| **Exclude** | Takes it out **and keeps it out**, skipped by every later extraction |
+
+Delete and Exclude sit at the end, away from the routine entries, because they are the
+two that are hard to undo by accident.
+
+On a relationship row the menu offers **Relationship Info**, which opens the link in
+full: its kind, its column pairs with the type on each side, and which end is the
+child and which the parent.
+
 ## Implied foreign keys
 
 **Find candidates** matches each table's primary or unique key columns, by name and
@@ -81,15 +118,23 @@ a guess.
 ## Processes
 
 **New** defines a business process, and items are assigned to it from here or from the
-diagram. A process is what makes a readable diagram possible later: you add the
-process, not thirty files.
+diagram. A saved **diagram** row offers **Open in Viewer**, **Rename...** and
+**Delete**, so the diagrams kept in the model are managed from the same place. A
+process is what makes a readable diagram possible later: you add the process, not
+thirty files.
 
 ## Health
 
 What a model accumulates as the application changes under it: relationships pointing
-at items that are not there, references to items missing from the model, duplicated
-items and duplicated relationships, items nothing connects to, and redundant access
-paths. Each finding jumps to the item it is about.
+at items that are not there, **missing referenced items** that a relationship names
+but the model does not hold, duplicated items and duplicated relationships, items
+nothing connects to, and redundant access paths. Each finding jumps to the item it is
+about.
+
+Two of them read as advice rather than as errors. **Covered by** says another access
+path already covers this one, and **check before removing** marks the ones where that
+is true but worth a look first: an index nothing seems to use may still be the one a
+query plan picked.
 
 ## Sharing the model
 

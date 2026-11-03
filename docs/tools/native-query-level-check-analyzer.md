@@ -41,7 +41,7 @@ as they are now. **Cancel** stops it, reporting nothing.
 | **Queries Affected** | The distinct queries that will fail, one line each |
 | **Files** | Which record formats changed, and how many queries each breaks |
 
-Each has its own filter box.
+Each has its own filter box, and **affected only** hides the pairs that still match.
 
 ## What to do with the result
 

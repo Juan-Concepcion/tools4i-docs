@@ -25,7 +25,7 @@ three different answers, and only one of them means the fix is running.
 | Control | What it does |
 |---|---|
 | **Mode** | Lists PTFs one by one, or **PTF groups** with their overall status. It also decides what the boxes beside it filter on |
-| **Id** | Shows only the ones whose identifier contains this text. Blank means all |
+| **PTF ID** | Shows only the ones whose identifier contains this text. Blank means all |
 | **Product** | Restricts to a single product, such as the operating system. Blank means all |
 | **Limit** | Stops after this many rows, up to 1,000,000. 2000 by default |
 

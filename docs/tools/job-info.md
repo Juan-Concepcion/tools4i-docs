@@ -60,6 +60,21 @@ are looking at, not the list your own session is using, which is the answer when
 program resolved to the wrong copy. **File Overrides** is the answer when a program
 wrote to a file nobody expected.
 
+## Reading a long call stack
+
+The Call Stack tab has one option worth knowing: **hide the system frames**. It drops
+the command entry, the menus and the runtime a job passes through, leaving only your
+own programs, and **the frame numbers keep their real position** so nothing is
+renumbered to look tidier than it is.
+
+Its search box takes a program name, a procedure or a statement number.
+
+## Acting on the job
+
+From here the job itself can be **held**, **released**, **ended now**, and its
+**spooled files** listed, so a job you came to read does not need a trip back to the
+[Jobs Manager]({{ site.baseurl }}/tools/jobs-manager/) to be acted on.
+
 ## Refresh, per tab
 
 Every tab has its own **Refresh**, because a running job changes as you watch it.

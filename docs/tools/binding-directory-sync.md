@@ -31,6 +31,8 @@ built with, and nobody knows by how much.
 Leaving both base boxes empty is the common case: the same name, found the way the
 binder would find it.
 
+A **quick filters** switch adds a box over each column of the result.
+
 ## The six verdicts
 
 | Verdict | What it means |

@@ -55,6 +55,18 @@ programs will not fail. They will read the record with the old layout and write
 whatever that produces, quietly, for as long as nobody notices. A list of them is
 worth more than the list of programs that fail loudly.
 
+## Acting on a row
+
+| Entry | What it does |
+|---|---|
+| **Open Source (read only)** | The program's source |
+| **Run action on N programs...** | Runs your own compile action over the selection, straight from the list |
+| **Query Info** | On a query row, opens [Native Query Info]({{ site.baseurl }}/tools/native-query-info/) |
+| **Copy Name**, **Name and Library**, **Copy File Name** | |
+
+**Run action on N programs** is what turns the analysis into the recompilation
+without retyping forty names into a command.
+
 ## Taking it out
 
 **Copy list** puts the `LIBRARY/PROGRAM` list on the clipboard, and each tab exports

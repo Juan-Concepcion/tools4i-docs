@@ -31,7 +31,7 @@ list as a chip that is either **Matches** or **Does NOT match**.
 |---|---|
 | **All terms** | Every term appears somewhere in the file, on any line |
 | **Same line** | Every term appears together on one line |
-| **Any term** | One term is enough |
+| **At least one term** | One term is enough |
 
 With **Case sensitive** and **Regular expressions** beside them, and the same
 **column range** for fixed-format sources, defaulting to 1 through 100.

@@ -79,7 +79,8 @@ Three tick boxes:
 ## Members on the server that are not in the project
 
 The result lists them separately, because they are the other half of the question:
-they exist in the library and not in your folder.
+they exist in the library and not in your folder. Both result lists have a **quick
+filters** switch of their own, which matters on an upload of several hundred members.
 
 **Delete all listed** removes every one of them from the server. It cannot be undone
 from here, which is why it is a button of its own and not part of the upload.

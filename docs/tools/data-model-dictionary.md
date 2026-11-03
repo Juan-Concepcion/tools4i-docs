@@ -37,8 +37,8 @@ extracting or editing the model in another panel.
 | **Long name** | The SQL name |
 | **Datatype**, **Length**, **Precision** | The definition that makes this row distinct |
 | **Used by** | A cross-reference: which items carry this column |
-| **Sensitivity** | The classification, when there is one |
-| **Protection** | Encryption or masking recorded for it |
+| **Sensitivity** | **NPI**, **PII**, or **not classified** |
+| **Protection** | **Encrypted**, **not protected**, or **not reviewed**, which is the state a column starts in |
 | **Description** | The business meaning, which is the part you write |
 
 One row per **distinct definition**, not per name. Two columns sharing a name but not
@@ -62,9 +62,11 @@ the same field name holding different things in different files.
 Three ways to fill the dictionary in from what the model already knows, rather than by
 typing:
 
-- **register encryption found in the source text**,
-- **classify sensitive data**,
-- and seed descriptions from what the sources already say.
+| Action | What it proposes |
+|---|---|
+| **Register encryption found in the source text** | Columns whose source text says they are encrypted, so the Protection column reflects it |
+| **Classify sensitive data** | Classifications from a **pattern scan** over the column names and a **source text scan**, proposing **NPI**, **PII** or neither |
+| **Suggest descriptions** | Business descriptions seeded from the text the sources already carry |
 
 Every one of them **proposes**; nothing is applied on its own. The review dialog shows
 the proposals with **Select all** and **Select none**, and **Apply selected** saves
@@ -84,8 +86,10 @@ true.
 
 **Export** offers four documents:
 
-- two spreadsheets, one row per column, or one row per column-and-item pair,
-- two written reports, the dictionary reference and the sensitive-data report.
+- two spreadsheets: one row per column, or **one row per column and item pair**, one
+  line per usage, which is the one to use when somebody asks which files a sensitive
+  column appears in,
+- two written reports: the dictionary reference, and the sensitive-data report.
 
 That is usually how this reaches the people who asked for documentation.
 
